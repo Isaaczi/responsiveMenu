@@ -1,0 +1,85 @@
+@import config
+@import utils
+@import global
+
+.nav-bar
+    background: $primary
+    padding: 20px
+    display: block
+    color: $font
+    cursor: pointer
+    font-size: 3rem
+    width: 100%
+    .icon
+        stroke: $font
+        width: max-content
+        height: max-content
+
+// Menus
+
+.menu, .submenu
+    list-style: none
+    padding: 0
+    margin: 0
+
+// Main menu
+
+.menu
+    background: $secondary
+    width: 100%
+    margin-left: -100% // Ocultar el menu
+    transition: all .3s
+    .menu__link
+        display: block
+        padding: 2rem
+        color: $font
+        font-size: 2rem
+        text-decoration: none
+        &:hover
+            background: $darkSecondary
+
+// Menu JS
+
+.show
+    margin-left: 0
+
+// Submenu
+
+.submenu-btn
+    .icon
+        stroke: $font
+        width: 1.8rem
+        height: 1.8rem
+
+.submenu
+    height: 0
+    overflow: hidden
+    transition: all .3s
+    .submenu__link
+        background: $terciary
+        padding-left: 5rem
+        &:hover
+            background: $darkTerciary
+
+// Responsive
+
+@media (min-width: 760px)
+    .nav-bar
+        display: none
+    .menu
+        display: flex
+        margin-left: 0
+        .submenu-container
+            position: relative
+            .submenu
+                overflow: visible
+                position: absolute
+                top: 6rem
+                width: 20rem
+                z-index: 100
+                opacity: 0
+                visibility: hidden
+            // &:hover .submenu
+            //     opacity: 1
+            //     visibility: visible
+            
